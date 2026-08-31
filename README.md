@@ -166,3 +166,8 @@ Ninguno de los dos vacíos corresponde a lógica de negocio ni a código de la r
 ## Continuidad del proyecto
 
 Repositorio nuevo respecto a `magictickets` (Hitos 1 y 3): Spring Boot, Spring Data JPA, PostgreSQL y Docker constituyen un stack distinto, aun cuando el lenguaje siga siendo Java. El dominio de Hito 3 se copió manualmente con corrección de packages; ambos repositorios permanecen independientes y sin tags cruzados.
+
+
+## JaCoCo
+
+<img width="1531" height="510" alt="imagen" src="https://github.com/user-attachments/assets/3a0c9265-3333-4dcc-a854-38cb1dbe9df1" />
