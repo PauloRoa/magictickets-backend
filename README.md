@@ -2,7 +2,7 @@
 
 Microservicio backend de MagicTickets, plataforma de venta de tickets para eventos, expuesto vía API REST y respaldado por persistencia real en PostgreSQL. El sistema expone la cartelera de eventos, permite crear eventos nuevos y ejecutar compras validando las mismas reglas de negocio definidas en el Hito 1 (cantidad positiva, máximo 5 tickets por compra, stock suficiente), documentado de forma automática con OpenAPI/Swagger y aislado por perfiles de entorno.
 
-Proyecto correspondiente al **Hito 4** del módulo "Fundamentos de Calidad y TDD en Java" — Unidad 4: Microservicios con Spring Boot, PostgreSQL y Docker. Evoluciona sobre el dominio entregado en el **Hito 3** (`magictickets`), reconstruido en un repositorio nuevo por introducir un stack tecnológico distinto (Spring Boot, JPA, Docker).
+Proyecto correspondiente al **Hito 4** del curso "Java" — Unidad 4: Microservicios con Spring Boot, PostgreSQL y Docker. Evoluciona sobre el dominio entregado en el **Hito 3** (`magictickets`), reconstruido en un repositorio nuevo por introducir un stack tecnológico distinto (Spring Boot, JPA, Docker).
 
 ---
 
