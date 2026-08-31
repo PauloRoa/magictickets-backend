@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:18-alpine
+    container_name: magictickets-postgres-db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: magic_user
+      POSTGRES_PASSWORD: magic_password
+      POSTGRES_DB: magictickets_db
+    
+    volumes:
+      - postgres_data:/var/lib/postgresql
+
+volumes:
+  postgres_data:
