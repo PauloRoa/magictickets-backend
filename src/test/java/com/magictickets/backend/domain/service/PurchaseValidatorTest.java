@@ -20,7 +20,7 @@ class PurchaseValidatorTest {
     private final PurchaseValidator validator = new PurchaseValidator();
 
     private Event eventWithStock(int stock) {
-        return new Event("Coldplay Live", stock, new EventDate(LocalDate.now().plusDays(30)), ShowCategory.MUSIC);
+        return new Event("Coldplay Live", stock, new EventDate(LocalDate.now().plusDays(30)), ShowCategory.MUSIC, "/events/test.jpg");
     }
 
     // --- validateQuantity -------------------------------------------------

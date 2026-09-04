@@ -32,6 +32,8 @@ public class EventEntity {
     @Enumerated(EnumType.STRING)
     private ShowCategory category;
 
+    private String imageUrl;
+
     protected EventEntity() {
         // Constructor vacío requerido por JPA/Hibernate
     }
@@ -44,6 +46,7 @@ public class EventEntity {
         entity.eventDate = event.getDate().value();
         entity.status = event.getStatus();
         entity.category = event.getCategory();
+        entity.imageUrl = event.getImageUrl();
         return entity;
     }
 
@@ -54,7 +57,8 @@ public class EventEntity {
             stock,
             new EventDate(eventDate),
             status,
-            category
+            category,
+            imageUrl
         );
     }
 }

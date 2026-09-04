@@ -18,8 +18,8 @@ public class EventWriteService {
         this.eventRepository = eventRepository;
     }
 
-    public Event createEvent(String name, int stock, LocalDate date, ShowCategory category) {
-        Event event = new Event(name, stock, new EventDate(date), category);
+    public Event createEvent(String name, int stock, LocalDate date, ShowCategory category, String imageUrl) {
+        Event event = new Event(name, stock, new EventDate(date), category, imageUrl);
         eventRepository.save(event);
         return event;
     }

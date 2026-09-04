@@ -4,5 +4,5 @@ import java.time.LocalDate;
 
 import com.magictickets.backend.domain.enums.ShowCategory;
 
-public record EventRequest(String name, int stock, LocalDate date, ShowCategory category) {
+public record EventRequest(String name, int stock, LocalDate date, ShowCategory category, String imageUrl) {
 }

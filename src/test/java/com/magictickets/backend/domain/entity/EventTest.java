@@ -25,7 +25,7 @@ class EventTest {
         ShowCategory category = ShowCategory.THEATER;
 
         // Act
-        Event event = new Event(name, stock, futureDate, category);
+        Event event = new Event(name, stock, futureDate, category, "/events/test.jpg");
 
         // Assert
         assertNotNull(event.getId());
@@ -41,7 +41,7 @@ class EventTest {
         // (futureDate already prepared)
 
         // Act
-        Event event = new Event("Hamilton", 120, futureDate, ShowCategory.THEATER);
+        Event event = new Event("Hamilton", 120, futureDate, ShowCategory.THEATER, "/events/test.jpg");
 
         // Assert
         assertEquals(ShowStatus.SCHEDULED, event.getStatus());
@@ -53,7 +53,7 @@ class EventTest {
         ShowCategory category = null;
 
         // Act
-        Executable action = () -> new Event("Hamilton", 120, futureDate, category);
+        Executable action = () -> new Event("Hamilton", 120, futureDate, category, "/events/test.jpg");
 
         // Assert
         assertThrows(IllegalArgumentException.class, action);
@@ -65,7 +65,7 @@ class EventTest {
         ShowCategory category = null;
 
         // Act
-        Executable action = () -> new Event("id-1", "Hamilton", 120, futureDate, ShowStatus.LIVE, category);
+        Executable action = () -> new Event("id-1", "Hamilton", 120, futureDate, ShowStatus.LIVE, category, "/events/test.jpg");
 
         // Assert
         assertThrows(IllegalArgumentException.class, action);
@@ -77,7 +77,7 @@ class EventTest {
         String id = "evt-42";
 
         // Act
-        Event event = new Event(id, "Hamilton", 120, futureDate, ShowStatus.FINISHED, ShowCategory.THEATER);
+        Event event = new Event(id, "Hamilton", 120, futureDate, ShowStatus.FINISHED, ShowCategory.THEATER, "/events/test.jpg");
 
         // Assert
         assertEquals(id, event.getId());
@@ -87,7 +87,7 @@ class EventTest {
     @Test
     void should_decreaseStock_when_reduceStockIsCalled() {
         // Arrange
-        Event event = new Event("Hamilton", 100, futureDate, ShowCategory.THEATER);
+        Event event = new Event("Hamilton", 100, futureDate, ShowCategory.THEATER, "/events/test.jpg");
 
         // Act
         event.reduceStock(30);

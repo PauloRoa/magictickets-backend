@@ -32,8 +32,8 @@ class EventReadServiceTest {
     void should_returnEventsFromRepository_when_readEventsIsCalled() {
         // Arrange
         List<Event> stored = List.of(
-                new Event("Coldplay Live", 100, new EventDate(LocalDate.now().plusDays(30)), ShowCategory.MUSIC),
-                new Event("Hamilton", 50, new EventDate(LocalDate.now().plusDays(60)), ShowCategory.THEATER));
+                new Event("Coldplay Live", 100, new EventDate(LocalDate.now().plusDays(30)), ShowCategory.MUSIC, "/events/test.jpg"),
+                new Event("Hamilton", 50, new EventDate(LocalDate.now().plusDays(60)), ShowCategory.THEATER, "/events/test.jpg"));
         when(eventRepository.findAll()).thenReturn(stored);
 
         // Act

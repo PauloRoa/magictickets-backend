@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.nullable;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -44,7 +45,7 @@ class EventControllerTest {
 
     private Event sampleEvent() {
         return new Event("id-1", "Coldplay Live", 100, new EventDate(FUTURE_DATE),
-                ShowStatus.SCHEDULED, ShowCategory.MUSIC);
+                ShowStatus.SCHEDULED, ShowCategory.MUSIC, "/events/test.jpg");
     }
 
     @Test
@@ -63,14 +64,14 @@ class EventControllerTest {
                 .andExpect(jsonPath("$[0].stock").value(100))
                 .andExpect(jsonPath("$[0].status").value("SCHEDULED"))
                 .andExpect(jsonPath("$[0].category").value("MUSIC"))
-                .andExpect(jsonPath("$[0].date.value").value(FUTURE_DATE.toString()));
+                .andExpect(jsonPath("$[0].date").value(FUTURE_DATE.toString()));
         verify(eventReadService).readEvents();
     }
 
     @Test
     void should_return201WithCreatedEvent_when_postEventIsCalledWithValidBody() throws Exception {
         // Arrange
-        when(eventWriteService.createEvent(anyString(), anyInt(), any(LocalDate.class), any(ShowCategory.class)))
+        when(eventWriteService.createEvent(anyString(), anyInt(), any(LocalDate.class), any(ShowCategory.class), nullable(String.class)))
                 .thenReturn(sampleEvent());
         String body = """
                 {
@@ -97,7 +98,7 @@ class EventControllerTest {
         var stock = org.mockito.ArgumentCaptor.forClass(Integer.class);
         var date = org.mockito.ArgumentCaptor.forClass(LocalDate.class);
         var category = org.mockito.ArgumentCaptor.forClass(ShowCategory.class);
-        verify(eventWriteService).createEvent(name.capture(), stock.capture(), date.capture(), category.capture());
+        verify(eventWriteService).createEvent(name.capture(), stock.capture(), date.capture(), category.capture(), nullable(String.class));
         assertEquals("Coldplay Live", name.getValue());
         assertEquals(100, stock.getValue());
         assertEquals(FUTURE_DATE, date.getValue());

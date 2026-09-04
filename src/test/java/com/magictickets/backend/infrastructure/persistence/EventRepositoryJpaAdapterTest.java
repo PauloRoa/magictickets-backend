@@ -29,7 +29,7 @@ class EventRepositoryJpaAdapterTest {
     private EventRepositoryJpaAdapter adapter;
 
     private Event newEvent(String name, int stock, LocalDate date, ShowCategory category) {
-        return new Event(name, stock, new EventDate(date), category);
+        return new Event(name, stock, new EventDate(date), category, "/events/test.jpg");
     }
 
     @Test

@@ -39,7 +39,7 @@ class EventWriteServiceTest {
         ShowCategory category = ShowCategory.MUSIC;
 
         // Act
-        Event result = eventWriteService.createEvent(name, stock, date, category);
+        Event result = eventWriteService.createEvent(name, stock, date, category, "/events/test.jpg");
 
         // Assert
         ArgumentCaptor<Event> saved = ArgumentCaptor.forClass(Event.class);
@@ -58,7 +58,7 @@ class EventWriteServiceTest {
         LocalDate today = LocalDate.now();
 
         // Act
-        Executable action = () -> eventWriteService.createEvent("Coldplay Live", 100, today, ShowCategory.MUSIC);
+        Executable action = () -> eventWriteService.createEvent("Coldplay Live", 100, today, ShowCategory.MUSIC, "/events/test.jpg");
 
         // Assert
         assertThrows(InvalidEventDateException.class, action);

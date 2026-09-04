@@ -13,8 +13,9 @@ public class Event {
     private final EventDate date;
     private ShowStatus status;
     private final ShowCategory category;
+    private final String imageUrl;
 
-    public Event(String name, int stock, EventDate date, ShowCategory category) {
+    public Event(String name, int stock, EventDate date, ShowCategory category, String imageUrl) {
         if (category == null) {
             throw new IllegalArgumentException("Event category cannot be null");
         }
@@ -24,9 +25,10 @@ public class Event {
         this.date = date;
         this.status = ShowStatus.SCHEDULED;
         this.category = category;
+        this.imageUrl = imageUrl;
     }
 
-    public Event(String id, String name, int stock, EventDate date, ShowStatus status, ShowCategory category) {
+    public Event(String id, String name, int stock, EventDate date, ShowStatus status, ShowCategory category, String imageUrl) {
     if (category == null) {
         throw new IllegalArgumentException("Event category cannot be null");
     }
@@ -36,6 +38,7 @@ public class Event {
     this.date = date;
     this.status = status;
     this.category = category;
+    this.imageUrl = imageUrl;
 }
 
     public String getId() {
@@ -60,6 +63,10 @@ public class Event {
 
     public ShowCategory getCategory() {
         return category;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
     }
 
     public void reduceStock(int quantity) {
