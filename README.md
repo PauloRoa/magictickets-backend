@@ -215,3 +215,7 @@ Cobertura por paquete: 100% en `domain` (todas sus subcarpetas), `application`, 
 - `com.magictickets.backend` (37%, paquete raíz): la clase de arranque `MagicticketsBackendApplication`, cuyo único método (`main`) no se ejecuta línea a línea en un test de contexto (`contextLoads`).
 
 Ninguno de los dos vacíos corresponde a lógica de negocio ni a código nuevo de Hito 6; se documentan aquí por transparencia, no se completan artificialmente.
+
+## JaCoCo
+
+<img width="1514" height="504" alt="imagen" src="https://github.com/user-attachments/assets/694464b4-8273-410b-908b-80534e0a252f" />
